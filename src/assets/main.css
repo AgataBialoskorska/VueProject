@@ -1,0 +1,45 @@
+@import './base.css';
+
+#app {
+    margin: 0 auto;
+    font-weight: normal;
+}
+a,
+.green {
+    text-decoration: none;
+    color: var(--green);
+    transition: 0.4s;
+}
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media (hover: hover) {
+    a:hover {
+        background-color: var(--hover-bg);
+        border-radius: 15px;
+        color: var(--hover-text);
+    }
+}
+@media (min-width: 980px) {
+    #app {
+        align-items: center;
+        display: grid;
+        font-size: clamp(12px, 1em, 20px);
+        gap: 2em;
+        grid-template-columns: 0.8fr 1fr;
+        height: 100vh;
+        margin: auto;
+        width: 980px;
+    }
+}
