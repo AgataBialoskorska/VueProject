@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         goBack() {
-            window.history.back()
+            this.$router.push('/more')
         },
         initializeGame() {
             this.showAlphabet = true

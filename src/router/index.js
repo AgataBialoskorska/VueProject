@@ -19,6 +19,10 @@ const router = createRouter({
             path: '/hangman',
             name: 'Hangman',
             component: () => import('../components/GameHangman.vue')
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: '/'
         }
     ]
 })
