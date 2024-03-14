@@ -1,38 +1,36 @@
 name: Build and Deploy
 
 on:
-    push:
-        branches:
-            - master
+  push:
+    branches:
+      - master
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: '21'
-                  cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'
+          cache: 'npm'
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Build
-              run: npm run build
+      - name: Build
+        run: npm run build
 
-            - name: Copy assets
-              run: |
-                mkdir -p dist/assets/img
-                cp -R src/components/img/* dist/assets/img
+      - name: Copy assets
+        run: cp -R src/components/img dist/assets/img
 
-            - name: Deploy
-              # https://github.com/JamesIves/github-pages-deploy-action
-              uses: JamesIves/github-pages-deploy-action@v4.4.1
-              with:
-                branch: gh-pages
-                folder: dist
+      - name: Deploy
+        # https://github.com/JamesIves/github-pages-deploy-action
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: dist
