@@ -7,8 +7,10 @@ import dotenv from 'dotenv';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/vueProject/",
   plugins: [
-    vue(),
+    // eslint-disable-next-line no-undef
+    [vue(),react()],
   ],
   define: {
     'process.env': dotenv.config().parsed
