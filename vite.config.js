@@ -9,8 +9,7 @@ import dotenv from 'dotenv';
 export default defineConfig({
   base: "/vueProject/",
   plugins: [
-    // eslint-disable-next-line no-undef
-    [vue(),react()],
+    vue(),
   ],
   define: {
     'process.env': dotenv.config().parsed
