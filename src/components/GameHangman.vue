@@ -106,7 +106,7 @@ export default {
         </a>
 
         <h1>Hangman Game</h1>
-        <img :src="'src/components/img/s' + trying + '.jpg'" alt="Hangman Image" />
+        <img :src="'dist/assets/img/s' + trying + '.jpg'" alt="Hangman Image" />
         <div class="password">
             <span v-for="(letter, index) in passwordSecret" :key="index">
                 {{
