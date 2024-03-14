@@ -142,7 +142,7 @@ export default {
             class="gh"
             @mouseenter="aHover"
             @mouseleave="aNotHover"
-            href="https://github.com/AgataBialoskorska/vuePortfolio/blob/master/src/components/GameHangman.vue"
+            href="https://github.com/AgataBialoskorska/vueProject/blob/master/src/components/GameHangman.vue"
         >
             <i class="fa-brands fa-square-github"></i>
             GH Repository
