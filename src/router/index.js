@@ -8,23 +8,35 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: ViewHome
+            component: ViewHome,
+            meta: { title: 'Portfolio' }
         },
         {
             path: '/more',
             name: 'more',
-            component: ViewMore
+            component: ViewMore,
+            meta: { title: 'More' }
         },
         {
             path: '/hangman',
             name: 'Hangman',
-            component: () => import('../components/GameHangman.vue')
+            component: () => import('../components/GameHangman.vue'),
+            meta: { title: 'Game Hangman' }
         },
         {
             path: '/:pathMatch(.*)*',
             redirect: '/'
         }
     ]
+})
+router.beforeEach((to, from, next) => {
+    const defaultTitle = 'Agata Białoskórska' // Domyślny tytuł
+    if (to.meta.title) {
+        document.title = defaultTitle + ' - ' + to.meta.title
+    } else {
+        document.title = defaultTitle
+    }
+    next()
 })
 
 export default router
