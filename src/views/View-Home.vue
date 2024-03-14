@@ -124,7 +124,7 @@ th {
 
 td {
     color: var(--text);
-    font-size: min(2.6vmin, 18px); /* Responsywne dostosowanie rozmiaru czcionki dla komórek */
+    font-size: min(2.6vmin, 18px);
     padding: 0.3em;
     text-align: center;
 }
