@@ -3,7 +3,7 @@ import ViewHome from '../views/View-Home.vue'
 import ViewMore from '../views/View-More.vue'
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: [
         {
             path: '/',
@@ -30,7 +30,7 @@ const router = createRouter({
     ]
 })
 router.beforeEach((to, from, next) => {
-    const defaultTitle = 'Agata Białoskórska' // Domyślny tytuł
+    const defaultTitle = 'Agata Białoskórska'
     if (to.meta.title) {
         document.title = defaultTitle + ' - ' + to.meta.title
     } else {
