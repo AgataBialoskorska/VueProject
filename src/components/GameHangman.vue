@@ -1,101 +1,107 @@
 <script setup>
+import { useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
 import { aHover, aNotHover } from '/src/components/AnimationComponent.vue'
-</script>
 
-<script>
-export default {
-    data() {
-        return {
-            showAlphabet: true,
-            passwordArray: [
-                'Practice makes perfect',
-                'East or west, home is best',
-                'A friend in need is a friend indeed',
-                'Where there is a will, there is a way',
-                'Time heals all wounds',
-                'Better late than never',
-                'Easier said than done',
-                'Speech is silver, silence is golden',
-                'Better an open enemy than a false friend',
-                'Every man has his faults'
-            ],
-            password: '',
-            passwordLength: 0,
-            trying: 0,
-            passwordSecret: [],
-            clickedLetters: [],
-            alphabet: Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)),
-            wonGame: false,
-            lostGame: false,
-            resultMessage: '',
-            color: ''
-        }
-    },
-    created() {
-        this.initializeGame()
-    },
-    methods: {
-        goBack() {
-            this.$router.push('/more')
-        },
-        initializeGame() {
-            this.showAlphabet = true
-            this.password = this.passwordArray[Math.floor(Math.random() * this.passwordArray.length)].toUpperCase()
-            this.passwordLength = this.password.length
-            this.trying = 0
-            this.passwordSecret = this.password.split('').map((char) => (char === ' ' || char === ',' ? char : '-'))
-            this.clickedLetters = []
-            this.wonGame = false
-            this.lostGame = false
-            this.resultMessage = ''
-            this.color = ''
-            //console.log(this.password)
-        },
-        check(letter) {
-            if (this.clickedLetters.includes(letter)) {
-                return
-            }
+const passwordArray = [
+    'Practice makes perfect',
+    'East or west, home is best',
+    'A friend in need is a friend indeed',
+    'Where there is a will, there is a way',
+    'Time heals all wounds',
+    'Better late than never',
+    'Easier said than done',
+    'Speech is silver, silence is golden',
+    'Better an open enemy than a false friend',
+    'Every man has his faults'
+]
 
-            this.clickedLetters.push(letter)
-            // console.log(this.clickedLetters);
-            let letterFound = false
+const showAlphabet = ref(true)
+const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i))
+const password = ref('')
+const passwordLength = ref(0)
+const passwordSecret = ref([])
+const clickedLetters = ref([])
+const imagePath = ref()
+const trying = ref(1)
+const wonGame = ref(false)
+const lostGame = ref(false)
+const resultMessage = ref('')
+const color = ref('')
 
-            for (let i = 0; i < this.passwordLength; i++) {
-                if (this.password[i] === letter) {
-                    this.passwordSecret.splice(i, 1, letter)
-                    letterFound = true
-                }
-            }
+const router = useRouter()
+const goBack = () => {
+    router.push('/more')
+}
 
-            if (!letterFound) {
-                this.trying++
-                if (this.trying >= 9) {
-                    this.endGame(false)
-                }
-            }
+const initializeGame = () => {
+    showAlphabet.value = true
+    password.value = passwordArray[Math.floor(Math.random() * passwordArray.length)].toUpperCase()
+    passwordLength.value = password.value.length
+    trying.value = 0
+    passwordSecret.value = password.value.split('').map((char) => (char === ' ' || char === ',' ? char : '-'))
+    clickedLetters.value = []
+    wonGame.value = false
+    lostGame.value = false
+    resultMessage.value = ''
+    color.value = ''
+}
 
-            if (!this.passwordSecret.includes('-')) {
-                this.endGame(true)
-            }
-        },
-        endGame(isWin) {
-            if (isWin && !this.lostGame) {
-                this.wonGame = true
-                this.resultMessage = 'Well done! You guessed the password!'
-                this.color = 'lime'
-                this.showAlphabet = false
-            } else {
-                this.lostGame = true
-                this.resultMessage = 'Oh sorry, try again 😉'
-                this.color = 'red'
-                this.showAlphabet = false
-            }
-        },
-        resetGame() {
-            this.initializeGame()
+const resetGame = () => {
+    initializeGame()
+}
+
+const check = (letter) => {
+    if (clickedLetters.value.includes(letter)) {
+        return
+    }
+
+    clickedLetters.value.push(letter)
+
+    let letterFound = false
+    for (let i = 0; i < passwordLength.value; i++) {
+        if (password.value[i] === letter) {
+            passwordSecret.value.splice(i, 1, letter)
+            letterFound = true
         }
     }
+
+    if (!letterFound) {
+        trying.value++
+        if (trying.value >= 9) {
+            endGame(false)
+        }
+    }
+
+    if (!passwordSecret.value.includes('-')) {
+        endGame(true)
+    }
 }
+
+const endGame = (isWin) => {
+    if (isWin && !lostGame.value) {
+        wonGame.value = true
+        resultMessage.value = 'Well done! You guessed the password!'
+        color.value = 'lime'
+        showAlphabet.value = false
+    } else {
+        lostGame.value = true
+        resultMessage.value = 'Oh sorry, try again 😉'
+        color.value = 'red'
+        showAlphabet.value = false
+    }
+}
+
+watch(trying, async (newTrying) => {
+    try {
+        const image = await import(`@/components/img/s${newTrying}.jpg`)
+        imagePath.value = image.default
+    } catch (error) {
+        console.error('Error loading image:', error)
+    }
+})
+
+initializeGame()
 </script>
 
 <template>
@@ -106,7 +112,7 @@ export default {
         </a>
 
         <h1>Hangman Game</h1>
-        <img :src="'dist/assets/img/s' + trying + '.jpg'" alt="Hangman Image" />
+        <img :src="imagePath" alt="Hangman Image" />
         <div class="password">
             <span v-for="(letter, index) in passwordSecret" :key="index">
                 {{
@@ -115,7 +121,7 @@ export default {
                         : clickedLetters.includes(letter)
                           ? letter
                           : lostGame
-                            ? this.password[index]
+                            ? password[index]
                             : '-'
                 }}
             </span>
@@ -149,6 +155,7 @@ export default {
         </a>
     </div>
 </template>
+
 <style scoped>
 .gameHangman {
     background-color: rgb(34, 17, 47);
