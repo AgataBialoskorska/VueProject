@@ -5,7 +5,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
         console.log(config)
       return {
-        target: 'http://localhost:5173'
+        target: 'http://localhost:5173/#/'
       }
     },
   },
