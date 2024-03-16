@@ -1,7 +1,7 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
 describe('GameHangman', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:5173/hangman')
+        cy.visit('http://localhost:5173/#/hangman')
     })
 
     it('Should display "Hangman Game" header', () => {
@@ -34,14 +34,14 @@ describe('GameHangman', () => {
 
     it('Should navigate back when the back button is clicked', () => {
         cy.get('.goBack').click()
-        cy.url().should('eq', 'http://localhost:5173/more')
+        cy.url().should('eq', 'http://localhost:5173/#/more')
     })
 
     it('Should navigate to the GitHub repository when the GitHub link is clicked', () => {
         cy.get('.gh').should(
             'have.attr',
             'href',
-            'https://github.com/AgataBialoskorska/vuePortfolio/blob/master/src/components/GameHangman.vue'
+            'https://github.com/AgataBialoskorska/vueProject/blob/master/src/components/GameHangman.vue'
         )
     })
 

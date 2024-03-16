@@ -4,7 +4,7 @@ describe('SEO Tests', () => {
   })
 
   it('Should have a descriptive title', () => {
-    cy.title().should('eq', 'Agata B.')
+    cy.title().should('include', 'Agata Białoskórska')
   })
 
   it('Should have meta description tag', () => {
