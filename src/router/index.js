@@ -25,7 +25,8 @@ const router = createRouter({
         },
         {
             path: '/:pathMatch(.*)*',
-            redirect: '/'
+            name: 'home',
+            component: ViewHome
         }
     ]
 })
@@ -35,6 +36,13 @@ router.beforeEach((to, from, next) => {
         document.title = defaultTitle + ' - ' + to.meta.title
     } else {
         document.title = defaultTitle
+    }
+
+    const defaultUrl = '/'
+    if (to.path === '/' || to.path === '/more' || to.path === '/hangman') {
+        next()
+    } else {
+        next(defaultUrl)
     }
     next()
 })
