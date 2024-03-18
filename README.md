@@ -13,18 +13,18 @@ ___
 ## How to:
 
 ### Clone the project to a selected directory on your computer.
-```sh
+```
 git clone https://github.com/AgataBialoskorska/VueProject.git
 ```
 
 ### Go to the project directory and install it.
-```sh
+```
 npm i
 ```
 
 ### Run development server
 
-```sh
+```
 npm run dev
 ```
 
@@ -33,10 +33,10 @@ npm run dev
 ### Run cypress test
 
 - development server: 
-```sh
+```
 npm run e2e-run
 ```
 - production server:
-```sh
+```
 npm run e2e-prod
 ```
