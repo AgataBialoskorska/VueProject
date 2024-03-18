@@ -1,35 +1,42 @@
-# portfolio
+## What kind of project is this?
 
-This template should help get you started developing with Vue 3 in Vite.
+This is my portfolio page, created in the Vue 3 + Vite starter template, preserving the colors and format.
 
-## Recommended IDE Setup
+Kudos to [this project](https://www.youtube.com/watch?v=9FVtiJHFCSU) for inspiration.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Roadmap:
 
-## Customize configuration
+[ ] Add another visual project.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+___
 
-## Project Setup
+## How to:
 
+### Clone the project to a selected directory on your computer.
 ```sh
-npm install
+git clone https://github.com/AgataBialoskorska/VueProject.git
 ```
 
-### Compile and Hot-Reload for Development
+### Go to the project directory and install it.
+```sh
+npm i
+```
+
+### Run development server
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Other Commands: 
 
+### Run cypress test
+
+- development server: 
 ```sh
-npm run build
+npm run e2e-run
 ```
-
-### Lint with [ESLint](https://eslint.org/)
-
+- production server:
 ```sh
-npm run lint
+npm run e2e-prod
 ```
