@@ -15,25 +15,25 @@
         "e2e-prod": "vite build && start-server-and-test preview http://localhost:5173 \"cypress run --e2e\""
     },
     "dependencies": {
-        "axios": "1.7.0",
+        "axios": "1.7.2",
         "dotenv": "16.4.5",
         "follow-redirects": ">=1.15.6",
         "oh-vue-icons": "1.0.0-rc3",
         "start-server-and-test": "2.0.4",
-        "vue": "3.4.27",
+        "vue": "3.4.31",
         "vue-material-design-icons": "5.3.0",
-        "vue-router": "4.3.2"
+        "vue-router": "4.4.0"
     },
     "devDependencies": {
-        "@rushstack/eslint-patch": "1.7.2",
-        "@vitejs/plugin-vue": "5.0.4",
+        "@rushstack/eslint-patch": "1.10.3",
+        "@vitejs/plugin-vue": "5.0.5",
         "@vue/eslint-config-prettier": "9.0.0",
-        "cypress": "13.6.6",
-        "eslint": "8.57.0",
-        "eslint-plugin-cypress": "2.15.1",
-        "eslint-plugin-vue": "9.22.0",
-        "prettier": "3.2.5",
-        "vite": "5.1.7",
+        "cypress": "13.12.0",
+        "eslint": "9.6.0",
+        "eslint-plugin-cypress": "3.3.0",
+        "eslint-plugin-vue": "9.26.0",
+        "prettier": "3.3.2",
+        "vite": "5.3.2",
         "follow-redirects": ">=1.15.6"
     }
 }
