@@ -3,7 +3,7 @@ import { aHover, aNotHover } from '/src/components/AnimationComponent.vue'
 </script>
 <template>
     <div class="techstack">
-        <p>I've been working with:</p>
+        <div>I've been working with:</div>
         <a href="https://skillicons.dev">
             <img src="https://skillicons.dev/icons?i=git,github,aws,vscode" alt="git,gihub,aws,vscode" />
             <img src="https://skillicons.dev/icons?i=mysql,regex,py" alt="mysql,regex,py" />
@@ -12,16 +12,24 @@ import { aHover, aNotHover } from '/src/components/AnimationComponent.vue'
         </a>
     </div>
     <div class="projects">
-        <p>My visual project:</p>
-        <RouterLink to="/hangman" @mouseenter="aHover" @mouseleave="aNotHover">
-            <v-icon name="fa-spell-check" />
+        <div>My visual projects:</div>
+        <RouterLink to="/hangman" class="hangmanLink" @mouseenter="aHover" @mouseleave="aNotHover">
+            <p class="linkIcon"></p>
+            <p class="linkDescription">Hangman Game</p>
         </RouterLink>
+        <a href="https://www.jabi.pl" class="jabiLink" @mouseenter="aHover" @mouseleave="aNotHover">
+            <p class="linkIcon"></p>
+            <p class="linkDescription">Webpage for Stained Glass brand, created in Vanilla JavaScript</p>
+        </a>
+        <a href="https://www.bialoskorski.eu" class="bskiLink" @mouseenter="aHover" @mouseleave="aNotHover">
+            <p class="linkIcon"></p>
+            <p class="linkDescription">Total overhaul webpage in Next.js</p>
+        </a>
     </div>
 </template>
 
 <style>
 .techstack {
-    font-size: 1.5em;
     margin-top: 3vmin;
     text-align: center;
     img {
@@ -34,22 +42,35 @@ import { aHover, aNotHover } from '/src/components/AnimationComponent.vue'
     }
 }
 .projects {
-    font-size: 1.5em;
-    margin-top: 3vmin;
+    margin: 3vmin 25%;
     text-align: center;
     a {
-        display: inline-grid;
-        grid-auto-columns: minmax(30px, auto);
-        grid-auto-rows: minmax(30px, auto);
-        margin: 1vmin;
-        padding: 2vmin;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 4em 1fr;
+        grid-template-rows: auto;
+        justify-items: center;
+        margin: 2vmin;
+        width: 100%;
     }
-    .ov-icon {
-        margin: auto;
-        scale: 2;
+    .linkIcon {
+        background: radial-gradient(circle at 50% 0, rgba(36, 41, 46, 0.7), transparent 70.71%),
+            radial-gradient(circle at 6.7% 75%, rgba(36, 41, 46, 0.7), transparent 70.71%),
+            radial-gradient(circle at 93.3% 75%, rgba(66, 184, 131, 0.7), transparent 70.71%);
+        font-size: clamp(14px, 1.5em, 1.5em);
+        height: 1em;
+        width: 1em;
+    }
+    .linkDescription {
+        text-align: left;
+        margin: auto 1em;
+        width: 100%;
     }
 }
 @media (min-width: 980px) {
+    .projects {
+        margin: 3vmin;
+    }
     .techstack p,
     .projects p {
         font-size: clamp(12px, 1em, 22px);
