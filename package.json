@@ -20,7 +20,7 @@
         "follow-redirects": ">=1.15.6",
         "oh-vue-icons": "1.0.0-rc3",
         "start-server-and-test": "2.0.4",
-        "vue": "3.4.31",
+        "vue": "3.4.32",
         "vue-material-design-icons": "5.3.0",
         "vue-router": "4.4.0"
     },
