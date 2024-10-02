@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home notranslate">
         <table class="t1">
             <thead>
                 <tr>
@@ -56,7 +56,9 @@
         </table>
         <table class="t4 twoColumns">
             <thead>
-                <th colspan="2">SELECT goal, progress FROM my_roadmap<br />ORDER BY progress DESC LIMIT 3;</th>
+                <tr>
+                    <th colspan="2">SELECT goal, progress FROM my_roadmap<br />ORDER BY progress DESC LIMIT 3;</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>

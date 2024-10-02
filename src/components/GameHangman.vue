@@ -105,7 +105,7 @@ initializeGame()
 </script>
 
 <template>
-    <div class="gameHangman" :style="{ borderColor: color }">
+    <div class="gameHangman notranslate" :style="{ borderColor: color }">
         <a class="goBack" @click="goBack" @mouseenter="aHover" @mouseleave="aNotHover">
             <v-icon name="fa-angle-double-left" />
             back
