@@ -13,15 +13,15 @@ import { aHover, aNotHover } from '/src/components/AnimationComponent.vue'
     </div>
     <div class="projects">
         <div>My visual projects:</div>
-        <RouterLink to="/hangman" class="hangmanLink" @mouseenter="aHover" @mouseleave="aNotHover">
+        <RouterLink to="/hangman" class="hangmanLink notranslate" @mouseenter="aHover" @mouseleave="aNotHover">
             <p class="linkIcon"></p>
             <p class="linkDescription">Hangman Game</p>
         </RouterLink>
-        <a href="https://www.jabi.pl" class="jabiLink" @mouseenter="aHover" @mouseleave="aNotHover">
+        <a href="https://www.jabi.pl" class="jabiLink notranslate" @mouseenter="aHover" @mouseleave="aNotHover">
             <p class="linkIcon"></p>
             <p class="linkDescription">Webpage for Stained Glass brand, created in Vanilla JavaScript</p>
         </a>
-        <a href="https://www.bialoskorski.eu" class="bskiLink" @mouseenter="aHover" @mouseleave="aNotHover">
+        <a href="https://www.bialoskorski.eu" class="bskiLink notranslate" @mouseenter="aHover" @mouseleave="aNotHover">
             <p class="linkIcon"></p>
             <p class="linkDescription">Total overhaul webpage in Next.js</p>
         </a>
