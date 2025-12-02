@@ -15,14 +15,14 @@
         "e2e-prod": "vite build && start-server-and-test preview http://localhost:5173 \"cypress run --e2e\""
     },
     "dependencies": {
-        "axios": "1.7.8",
-        "dotenv": "16.4.5",
+        "dotenv": "16.5.0",
+        "axios": "1.9.0",
         "follow-redirects": ">=1.15.9",
         "oh-vue-icons": "1.0.0-rc3",
-        "start-server-and-test": "2.0.10",
+        "start-server-and-test": "2.0.12",
         "vue-material-design-icons": "5.3.1",
         "vue": "3.5.16",
-        "vue-router": "4.4.5"
+        "vue-router": "4.5.1"
     },
     "devDependencies": {
         "@rushstack/eslint-patch": "1.10.3",
