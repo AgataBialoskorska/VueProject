@@ -19,7 +19,7 @@
         "dotenv": "16.5.0",
         "follow-redirects": ">=1.15.9",
         "oh-vue-icons": "1.0.0-rc3",
-        "start-server-and-test": "2.0.12",
+        "start-server-and-test": "2.1.2",
         "vue-material-design-icons": "5.3.1",
         "vue": "3.5.16",
         "vue-router": "4.5.1"
